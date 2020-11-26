@@ -1,93 +1,67 @@
 package principal;
-import java.util.Date;
+import java.lang.Math;
 
 public class Viagem {
     
-    private int idViagem;
-
-    public int getIdViagem() {
-        return idViagem;
-    }
-
-    public void setIdViagem(int idViagem) {
-        this.idViagem = idViagem;
-    }
-
-    private int origem;
-        
-    public int getOrigem() {
+    private Estacao origem;
+    private Estacao destino;
+    private long horaPartida;
+    private long horaChegada; 
+    private long tempoEstimado;
+    private long tempoDecorrido;
+    
+    public Estacao getOrigem() {
         return origem;
     }
 
-    public void setOrigem(int origem) {
+    public void setOrigem(Estacao origem) {
         this.origem = origem;
     }
 
-    private int destino;
-        
-    public int getDestino() {
+    public Estacao getDestino() {
         return destino;
     }
 
-    public void setDestino(int destino) {
+    public void setDestino(Estacao destino) {
         this.destino = destino;
     }
-
-    private Date horaPartida;
     
-    public Date getHoraPartida() {
+    public long getHoraPartida() {
         return horaPartida;
     }
 
-    public void setHoraPartida(Date horaPartida) {
+    public void setHoraPartida(long horaPartida) {
         this.horaPartida = horaPartida;
     }
     
-    private Date horaChegada;
-    
-    public Date getHoraChegada() {
+    public long getHoraChegada() {
         return horaChegada;
     }
 
-    public void setHoraChegada(Date horaChegada) {
+    public void setHoraChegada(long horaChegada) {
         this.horaChegada = horaChegada;
     }
     
-    private Date tempoEstimado;
-    
-    public Date getTempoEstimado() {
+    public long getTempoEstimado() {
         return tempoEstimado;
     }
 
-    public void setTempoEstimado(Date tempoEstimado) {
+    public void setTempoEstimado(long tempoEstimado) {
         this.tempoEstimado = tempoEstimado;
     }
     
-    private Date tempoDecorrido;
-
-    public Date getTempoDecorrido() {
+    public long getTempoDecorrido() {
         return tempoDecorrido;
     }
 
-    public void setTempoDecorrido(Date tempoDecorrido) {
+    public void setTempoDecorrido(long tempoDecorrido) {
         this.tempoDecorrido = tempoDecorrido;
     }
     
-    void localizarTrem(){
-        //
-    }
-    
-    void finalizarViagem(){
-        //
-    }
-    
-    Viagem(int id, int origem, int Destino){
-        finalizarViagem();
-        setIdViagem(id);
+    Viagem(Estacao origem, Estacao destino, long inicioViagem){
         setOrigem(origem);
         setDestino(destino);
+        setHoraPartida(inicioViagem);
+        setTempoEstimado(Math.abs(destino.getTempo() - origem.getTempo()));
     }
-    
-    
-   
 }
